@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Formulario</title>
+</head>
+<body>
+<div style="margin: 24px;">
+	<nav class="navbar navbar-light" style="background-color: #841C26;">
+	<a class="navbar-brand" href="index.html">Inico</a>
+	<ul class="nav navbar-nav">
+		<li>
+	<a href="menu.html">Menu</a>
+	</li>
+	<li class="active">
+		<a href="formulario.html">Formulario</a>
+	</li>
+	<li>
+		<a href="resultado.html">Resultado</a>
+	</li>
+	<li>
+		<a href="contacto.html">Contacto</a>
+	                </li>
+	          </ul>
+	     </div>
+	</nav>
+</div>
+<h1>Formulario</h1>
+<form id="pedido">
+<p>Nombre: <input type="text" name="nombre"id="nombre" size="40px"></p>
+<P>Apellido: <input type="text" name="apellido"id="apellido"></P>
+<p>Direccion: <input type="text" name="direccion" id="direccion"></p>
+<p>Colonia: <input type="text" name="colonia" id="colonia"></p>
+<p>Telefono: <input type="text" name="telefono" id="telefono" size="40px"></p>
+<p>Servilletas: <input type="checkbox" name="servilletas"></p>
+<p>Tomate: <input type="checkbox" name="tomate"></p>
+<p>Cebolla: <input type="checkbox" name="cebolla"></p>
+<p>Pepinillos: <input type="checkbox" name="pepinillos"></p>
+<p>Piña: <input type="checkbox" name="piña"></p>
+<p> que vas a pedir:
+	<select name="menu" id="menu">
+		<option value="hamburguesa">Hamburguesa</option>
+		<option value="Tacos de perro">Tacos de perro</option>
+		<option value="gorditas">Gorditas</option>
+		<option value="zincronizada">Zincronizada</option>
+		<option value="quesadillas">Quesadillas</option>
+		<option value="boing de mango">Boing de mango</option>
+		<option value="torta ahogada">Torta ahogada</option>
+		<option value="Churro">churro</option>
+	</select>
+</p>
+<input type="submit" value="Enviar">
+<input type="reset" value="borrar">
+</form>
+<script type="text/javascript">
+	const form=document.getElementById("pedido");
+	form.addEventListener("submit",function(event){
+		event.preventDefault();
+		const formData=new FormData(form);
+		const orden={
+			nombre:formData.get("nombre"),
+			apellido:formData.get("apellido"),
+			direccion:formData.get("direccion"),
+			colonia:formData.get("colonia"),
+			telefono:formData.get("telefono"),
+			servilletas:formData.get("servilletas").checked ? "no":"si",
+			menu:formData.get("menu"),
+			tomate:formData.get("tomate").checked ? "no":"si",
+			cebolla:formData.get("cebolla").checked ? "no":"si",
+			pepinillos:formData.get("pepinillos").checked ? "no":"si",
+			piña:formData.get("piña").checked ? "no":"si"
+		};
+		localStorage.setItem("orden",JSON.stringify(orden));
+		window.location.href="pedidorealizado.html";
+	});
+</script>
+</body>
+</html>
