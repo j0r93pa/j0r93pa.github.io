@@ -19,11 +19,19 @@ font-size: 200px;
 text-align: center;
 }
 table{
-	margin-left: 200px;
+	border-collapse: collapse;
+	width: 100%;
+	margin-bottom: 20px;
+}
+th,td{
+	text-align: left;
+	padding: 8px;
 }
 th{
-	color: gold
+	background-color: #403D58;
+	color: white;
 }
-h1{
-	
+img{
+	width: 100px;
+	height: 100px;
 }
